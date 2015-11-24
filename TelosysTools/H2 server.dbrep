@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Telosys Database Repository --><root>
+<tableList databaseId="0" databaseName="H2 server" databaseProductName="H2" generation="2015-11-19 13:28:33">
+<table catalog="MARIAGEAUDRENCYRIL" databaseType="TABLE" javaBean="Personne" name="PERSONNE" schema="PUBLIC">
+<column dbComment="" dbDefaultValue="" dbName="NOM" dbNotNull="true" dbPosition="1" dbSize="255" dbTypeName="VARCHAR" inputType="text" javaName="nom" javaType="java.lang.String" jdbcTypeCode="12" label="Nom" maxLength="255" notEmpty="true" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="PRENOM" dbNotNull="true" dbPosition="2" dbSize="255" dbTypeName="VARCHAR" inputType="text" javaName="prenom" javaType="java.lang.String" jdbcTypeCode="12" label="Prenom" maxLength="255" notEmpty="true" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="ESTADULTE" dbNotNull="true" dbPosition="3" dbSize="1" dbTypeName="BOOLEAN" inputType="checkbox" javaName="estadulte" javaType="java.lang.Boolean" jdbcTypeCode="16" label="Estadulte" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="INVITEVIN" dbNotNull="true" dbPosition="4" dbSize="1" dbTypeName="BOOLEAN" inputType="checkbox" javaName="invitevin" javaType="java.lang.Boolean" jdbcTypeCode="16" label="Invitevin" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="INVITESOIR" dbNotNull="true" dbPosition="5" dbSize="1" dbTypeName="BOOLEAN" inputType="checkbox" javaName="invitesoir" javaType="java.lang.Boolean" jdbcTypeCode="16" label="Invitesoir" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="VIENTVIN" dbNotNull="true" dbPosition="6" dbSize="1" dbTypeName="BOOLEAN" inputType="checkbox" javaName="vientvin" javaType="java.lang.Boolean" jdbcTypeCode="16" label="Vientvin" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="VIENTSOIR" dbNotNull="true" dbPosition="7" dbSize="1" dbTypeName="BOOLEAN" inputType="checkbox" javaName="vientsoir" javaType="java.lang.Boolean" jdbcTypeCode="16" label="Vientsoir" notNull="true" selected="true"/>
+<column dbAutoIncremented="true" dbComment="" dbDefaultValue="(NEXT VALUE FOR PUBLIC.SYSTEM_SEQUENCE_33929284_BB5A_4FF4_A603_532F8F98FA37)" dbName="ID" dbNotNull="true" dbPosition="8" dbPrimaryKey="true" dbSize="10" dbTypeName="INTEGER" inputType="number" javaName="id" javaType="java.lang.Integer" jdbcTypeCode="4" label="Id" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="MAIL" dbNotNull="false" dbPosition="9" dbSize="255" dbTypeName="VARCHAR" inputType="text" javaName="mail" javaType="java.lang.String" jdbcTypeCode="12" label="Mail" maxLength="255" notNull="false" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbForeignKey="true" dbName="RESPONSABLEID" dbNotNull="true" dbPosition="10" dbSize="10" dbTypeName="INTEGER" inputType="number" javaName="responsableid" javaType="java.lang.Integer" jdbcTypeCode="4" label="Responsableid" notNull="true" selected="true"/>
+<fk name="REPONDRE">
+<fkcol colname="RESPONSABLEID" colref="ID" deferrable="7" deleterule="1" sequence="1" tablename="PERSONNE" tableref="RESPONSABLE" updaterule="1"/>
+</fk>
+<link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="REPONDRE" id="LINK_FK_REPONDRE_O" inverseSideOf="" javaName="responsable" javaType="Responsable" joinTableName="" mappedBy="" optional="UNDEFINED" owningSide="true" sourceTableName="PERSONNE" targetEntity="Responsable" targetTableName="RESPONSABLE" used="true">
+<joinColumns>
+<joinColumn insertable="false" name="RESPONSABLEID" nullable="true" referencedColumnName="ID" unique="false" updatable="false"/>
+</joinColumns>
+</link>
+</table>
+<table catalog="MARIAGEAUDRENCYRIL" databaseType="TABLE" javaBean="Responsable" name="RESPONSABLE" schema="PUBLIC">
+<column dbComment="" dbDefaultValue="" dbName="NOM" dbNotNull="true" dbPosition="1" dbSize="255" dbTypeName="VARCHAR" inputType="text" javaName="nom" javaType="java.lang.String" jdbcTypeCode="12" label="Nom" maxLength="255" notEmpty="true" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="MDP" dbNotNull="true" dbPosition="2" dbSize="255" dbTypeName="VARCHAR" inputType="text" javaName="mdp" javaType="java.lang.String" jdbcTypeCode="12" label="Mdp" maxLength="255" notEmpty="true" notNull="true" selected="true"/>
+<column dbAutoIncremented="true" dbComment="" dbDefaultValue="(NEXT VALUE FOR PUBLIC.SYSTEM_SEQUENCE_8291BEFE_72C7_4842_8CC4_D69BA4946C94)" dbName="ID" dbNotNull="true" dbPosition="3" dbPrimaryKey="true" dbSize="10" dbTypeName="INTEGER" inputType="number" javaName="id" javaType="java.lang.Integer" jdbcTypeCode="4" label="Id" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="'false'" dbName="ESTADMIN" dbNotNull="true" dbPosition="4" dbSize="1" dbTypeName="BOOLEAN" inputType="checkbox" javaName="estadmin" javaType="java.lang.Boolean" jdbcTypeCode="16" label="Estadmin" notNull="true" selected="true"/>
+<link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="REPONDRE" id="LINK_FK_REPONDRE_I" inverseSideOf="LINK_FK_REPONDRE_O" javaName="listOfPersonne" javaType="java.util.List" joinTableName="" mappedBy="responsable" optional="UNDEFINED" owningSide="false" sourceTableName="RESPONSABLE" targetEntity="Personne" targetTableName="PERSONNE" used="true"/>
+</table>
+</tableList>
+</root>
